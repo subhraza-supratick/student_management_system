@@ -6,7 +6,14 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 def get_db():
-    return mysql.connector.connect(**db_config)
+    return mysql.connector.connect(
+        host=db_config["host"],
+        user=db_config["user"],
+        password=db_config["password"],
+        database=db_config["database"],
+        port=db_config.get("port", 3306)
+    )
+
 
 @app.route('/')
 def index():
