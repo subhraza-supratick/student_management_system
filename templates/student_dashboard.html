@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container text-light">
+  <h2 class="mb-4">Welcome, {{ student[1] }}</h2>
+  <p><strong>Roll No:</strong> {{ student[2] }}</p>
+  <p><strong>Email:</strong> {{ student[3] }}</p>
+  <p><strong>Attendance Percentage:</strong> {{ percentage }}%</p>
+
+  <h4 class="mt-4">Results</h4>
+  <table class="table table-bordered table-dark">
+    <thead><tr><th>Subject</th><th>Marks</th></tr></thead>
+    <tbody>
+      {% for r in results %}
+        <tr><td>{{ r[0] }}</td><td>{{ r[1] }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{{ url_for('logout') }}" class="btn btn-light mt-3">Logout</a>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container text-light">
+  <h2 class="mb-4">Results for {{ student[1] }}</h2>
+
+  <form method="POST" class="mb-4">
+    <input type="text" name="subject" placeholder="Subject" class="form-control mb-2" required>
+    <input type="number" name="marks" placeholder="Marks" min="0" max="100" class="form-control mb-2" required>
+    <button class="btn btn-success w-100">Add Result</button>
+  </form>
+
+  <table class="table table-bordered table-dark">
+    <thead>
+      <tr><th>Subject</th><th>Marks</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+      {% for r in results %}
+      <tr>
+        <td>{{ r[1] }}</td>
+        <td>{{ r[2] }}</td>
+        <td>
+          <a href="{{ url_for('delete_result', result_id=r[0], student_id=student[0]) }}" 
+             class="btn btn-danger btn-sm" 
+             onclick="return confirm('Delete this result?')">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{{ url_for('admin_dashboard') }}" class="btn btn-light mt-3">Back to Dashboard</a>
+</div>
+{% endblock %}

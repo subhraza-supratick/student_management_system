@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+  <h2 class="text-center text-white mb-4">Manage Attendance for {{ student[1] }}</h2>
+  <form method="POST">
+    <input type="number" name="attendance" value="{{ attendance }}" class="form-control mb-3" min="0" placeholder="Attendance Count" required>
+    <input type="number" name="total_classes" value="{{ total_classes }}" class="form-control mb-3" min="0" placeholder="Total Classes" required>
+    <button type="submit" class="btn btn-primary w-100">Save Attendance</button>
+  </form>
+  <a href="{{ url_for('admin_dashboard') }}" class="btn btn-light mt-3 w-100">Back to Dashboard</a>
+</div>
+{% endblock %}

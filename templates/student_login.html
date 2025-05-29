@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+  <h2 class="text-center text-white">Student Login</h2>
+  <form method="post">
+    <input type="text" name="roll" placeholder="Enter Roll No" class="form-control mb-3" required>
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+    {% if error %}
+      <p class="text-danger text-center mt-2">{{ error }}</p>
+    {% endif %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+  <h2 class="text-center text-white mb-4">Edit Student</h2>
+  <form method="POST">
+    <input type="text" name="name" value="{{ student[1] }}" class="form-control mb-3" placeholder="Name" required>
+    <input type="text" name="roll" value="{{ student[2] }}" class="form-control mb-3" placeholder="Roll No" required>
+    <input type="email" name="email" value="{{ student[3] }}" class="form-control mb-3" placeholder="Email" required>
+    <button type="submit" class="btn btn-primary w-100">Update</button>
+  </form>
+  <a href="{{ url_for('admin_dashboard') }}" class="btn btn-light mt-3 w-100">Cancel</a>
+</div>
+{% endblock %}
